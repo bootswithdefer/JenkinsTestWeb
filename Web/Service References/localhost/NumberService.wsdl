@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s0="http://tempuri.org/NumberService" name="NumberService" targetNamespace="http://tempuri.org/NumberService" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/NumberService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AddNumbers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="number1" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="number2" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AddNumbersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="AddNumbersResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SubtractNumbers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="number1" type="xs:int" />
+            <xs:element minOccurs="1" maxOccurs="1" name="number2" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SubtractNumbersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="SubtractNumbersResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="int" type="xs:int" />
+    </xs:schema>
+  </types>
+  <message name="AddNumbersSoapIn">
+    <part name="parameters" element="s0:AddNumbers" />
+  </message>
+  <message name="AddNumbersSoapOut">
+    <part name="parameters" element="s0:AddNumbersResponse" />
+  </message>
+  <message name="SubtractNumbersSoapIn">
+    <part name="parameters" element="s0:SubtractNumbers" />
+  </message>
+  <message name="SubtractNumbersSoapOut">
+    <part name="parameters" element="s0:SubtractNumbersResponse" />
+  </message>
+  <message name="AddNumbersHttpGetIn">
+    <part name="number1" type="s:int" />
+    <part name="number2" type="s:int" />
+  </message>
+  <message name="AddNumbersHttpGetOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="SubtractNumbersHttpGetIn">
+    <part name="number1" type="s:int" />
+    <part name="number2" type="s:int" />
+  </message>
+  <message name="SubtractNumbersHttpGetOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="AddNumbersHttpPostIn">
+    <part name="number1" type="s:int" />
+    <part name="number2" type="s:int" />
+  </message>
+  <message name="AddNumbersHttpPostOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <message name="SubtractNumbersHttpPostIn">
+    <part name="number1" type="s:int" />
+    <part name="number2" type="s:int" />
+  </message>
+  <message name="SubtractNumbersHttpPostOut">
+    <part name="Body" element="s0:int" />
+  </message>
+  <portType name="NumberServiceSoap">
+    <operation name="AddNumbers">
+      <input message="s0:AddNumbersSoapIn" />
+      <output message="s0:AddNumbersSoapOut" />
+    </operation>
+    <operation name="SubtractNumbers">
+      <input message="s0:SubtractNumbersSoapIn" />
+      <output message="s0:SubtractNumbersSoapOut" />
+    </operation>
+  </portType>
+  <portType name="NumberServiceSoap12">
+    <operation name="AddNumbers">
+      <input message="s0:AddNumbersSoapIn" />
+      <output message="s0:AddNumbersSoapOut" />
+    </operation>
+    <operation name="SubtractNumbers">
+      <input message="s0:SubtractNumbersSoapIn" />
+      <output message="s0:SubtractNumbersSoapOut" />
+    </operation>
+  </portType>
+  <portType name="NumberServiceHttpGet">
+    <operation name="AddNumbers">
+      <input message="s0:AddNumbersHttpGetIn" />
+      <output message="s0:AddNumbersHttpGetOut" />
+    </operation>
+    <operation name="SubtractNumbers">
+      <input message="s0:SubtractNumbersHttpGetIn" />
+      <output message="s0:SubtractNumbersHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="NumberServiceHttpPost">
+    <operation name="AddNumbers">
+      <input message="s0:AddNumbersHttpPostIn" />
+      <output message="s0:AddNumbersHttpPostOut" />
+    </operation>
+    <operation name="SubtractNumbers">
+      <input message="s0:SubtractNumbersHttpPostIn" />
+      <output message="s0:SubtractNumbersHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="NumberServiceSoap" type="s0:NumberServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="AddNumbers">
+      <soap:operation soapAction="http://tempuri.org/NumberService/AddNumbers" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SubtractNumbers">
+      <soap:operation soapAction="http://tempuri.org/NumberService/SubtractNumbers" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberServiceSoap12" type="s0:NumberServiceSoap12">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="AddNumbers">
+      <soap12:operation soapAction="http://tempuri.org/NumberService/AddNumbers" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SubtractNumbers">
+      <soap12:operation soapAction="http://tempuri.org/NumberService/SubtractNumbers" style="document" />
+      <input>
+        <soap12:body use="literal" />
+      </input>
+      <output>
+        <soap12:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberServiceHttpGet" type="s0:NumberServiceHttpGet">
+    <http:binding verb="GET" />
+    <operation name="AddNumbers">
+      <http:operation location="/AddNumbers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="SubtractNumbers">
+      <http:operation location="/SubtractNumbers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberServiceHttpPost" type="s0:NumberServiceHttpPost">
+    <http:binding verb="POST" />
+    <operation name="AddNumbers">
+      <http:operation location="/AddNumbers" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="SubtractNumbers">
+      <http:operation location="/SubtractNumbers" />
+      <input>
+        <mime:content part="" type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="NumberService">
+    <port name="NumberServiceSoap" binding="s0:NumberServiceSoap">
+      <soap:address location="http://127.0.0.1:8080/NumberService.asmx" />
+    </port>
+    <port name="NumberServiceSoap12" binding="s0:NumberServiceSoap12">
+      <soap12:address location="http://127.0.0.1:8080/NumberService.asmx" />
+    </port>
+    <port name="NumberServiceHttpGet" binding="s0:NumberServiceHttpGet">
+      <http:address location="http://127.0.0.1:8080/NumberService.asmx" />
+    </port>
+    <port name="NumberServiceHttpPost" binding="s0:NumberServiceHttpPost">
+      <http:address location="http://127.0.0.1:8080/NumberService.asmx" />
+    </port>
+  </service>
+</definitions>
