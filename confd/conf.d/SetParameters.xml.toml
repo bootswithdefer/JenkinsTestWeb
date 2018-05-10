@@ -1,0 +1,6 @@
+[template]
+src = "SetParameters.xml.tmpl"
+dest = "SetParameters.xml"
+keys = [
+  "/parameters"
+]
